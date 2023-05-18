@@ -1,17 +1,20 @@
 <script setup>
 
 import GoodsItem from '../Home/components/GoodsItem.vue'
-// import { useBanner } from './composables/useBanner'
-// import { useCategory } from './composables/useCategory'
-// const { bannerList } = useBanner()
-// const { categoryData } = useCategory()
+import { useBanner } from './composables/useBanner'
+import { useCategory } from './composables/useCategory'
+const { bannerList } = useBanner()
+const { categoryData } = useCategory()
 
+// 封装轮播图，封装分类数据
+/*
 import { getCategoryAPI } from '@/apis/category';
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { getBannerAPI } from '@/apis/home'
 import { onBeforeRouteUpdate } from 'vue-router'
+*/
 
+/*
 // 获取数据
 const categoryData = ref({})
 const route = useRoute()
@@ -29,10 +32,10 @@ onBeforeRouteUpdate((to) => {
     console.log(to)
     getCategory(to.params.id)
 })
-
+*/
 
 // 获取banner
-
+/*
 const bannerList = ref([])
 
 const getBanner = async () => {
@@ -44,9 +47,10 @@ const getBanner = async () => {
 }
 
 onMounted(() => getBanner())
+*/
 
-
-// watch 监听路由
+// watch 监听路由 -> 解决路由缓存！
+// import { watch } from 'vue'
 // watch(
 //     () => route.params,
 //     (newValue, oldValue) => {
