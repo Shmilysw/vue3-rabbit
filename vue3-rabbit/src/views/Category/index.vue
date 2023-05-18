@@ -1,13 +1,13 @@
 <script setup>
 
-// import GoodsItem from '../Home/components/GoodsItem.vue'
+import GoodsItem from '../Home/components/GoodsItem.vue'
 // import { useBanner } from './composables/useBanner'
 // import { useCategory } from './composables/useCategory'
 // const { bannerList } = useBanner()
 // const { categoryData } = useCategory()
 
 import { getCategoryAPI } from '@/apis/category';
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { getBannerAPI } from '@/apis/home'
 
@@ -36,16 +36,16 @@ const getBanner = async () => {
 onMounted(() => getBanner())
 
 
-
-watch(
-    () => route.params,
-    (newValue, oldValue) => {
-        console.log(newValue)
-        console.log(oldValue)
-        getCategory()
-    },
-    { immediate: true }
-)
+// watch 监听路由
+// watch(
+//     () => route.params,
+//     (newValue, oldValue) => {
+//         console.log(newValue)
+//         console.log(oldValue)
+//         getCategory()
+//     },
+//     { immediate: true }
+// )
 
 </script>
 
@@ -67,7 +67,7 @@ watch(
                     </el-carousel-item>
                 </el-carousel>
             </div>
-            <!-- <div class="sub-list">
+            <div class="sub-list">
                 <h3>全部分类</h3>
                 <ul>
                     <li v-for="i in categoryData.children" :key="i.id">
@@ -85,7 +85,7 @@ watch(
                 <div class="body">
                     <GoodsItem v-for="good in item.goods" :goods="good" :key="good.id" />
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </template>
