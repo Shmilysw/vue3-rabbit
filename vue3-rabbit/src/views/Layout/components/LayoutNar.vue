@@ -10,7 +10,7 @@
 
                 <!-- 适配思路: 登录时显示第一块 非登录时显示第二块  是否有token -->
                 <template v-if="true">
-                    <li><a href="javascript:;"><i class=" iconfont icon-user"></i>周杰伦</a></li>
+                    <li><a href="javascript:;"><i class=" iconfont icon-user"></i>请先登录</a></li>
                     <li>
                         <el-popconfirm title="确认退出吗?" confirm-button-text="确认" cancel-button-text="取消">
                             <template #reference>
