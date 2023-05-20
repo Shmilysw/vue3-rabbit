@@ -85,6 +85,7 @@ onMounted(() => getBanner())
                 <h3>全部分类</h3>
                 <ul>
                     <li v-for="i in categoryData.children" :key="i.id">
+                        <!-- 配置路由关系 -->
                         <RouterLink :to="`/category/sub/${i.id}`">
                             <img :src="i.picture" />
                             <p>{{ i.name }}</p>
