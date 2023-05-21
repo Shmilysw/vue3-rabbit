@@ -37,6 +37,7 @@ npm run lint
 ### src目录
 
 + apis -> API接口文件夹
++ components -> 通用组件
 + composables -> 组合函数文件夹
 + directives -> 全局指令文件夹
 + styles -> 全局样式文件夹
