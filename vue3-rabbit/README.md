@@ -47,3 +47,7 @@ npm run lint
 ### 小技巧
 
 + vscode : ctrl + ` -> 打开之前打开的终端
+
+### 技术思考
+
++ pinia ：集中状态管理工具
