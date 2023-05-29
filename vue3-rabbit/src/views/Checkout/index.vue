@@ -36,20 +36,20 @@ onMounted(() => getCheckInfo())
 
 // onMounted(() => getCheckInfo())
 
-// // 控制弹框打开
-// const showDialog = ref(false)
+// 控制弹框打开
+const showDialog = ref(false)
 
 
-// // 切换地址
-// const activeAddress = ref({})
-// const switchAddress = (item) => {
-//     activeAddress.value = item
-// }
-// const confirm = () => {
-//     curAddress.value = activeAddress.value
-//     showDialog.value = false
-//     activeAddress.value = {}
-// }
+// 切换地址
+const activeAddress = ref({})
+const switchAddress = (item) => {
+    activeAddress.value = item
+}
+const confirm = () => {
+    curAddress.value = activeAddress.value
+    showDialog.value = false
+    activeAddress.value = {}
+}
 
 // // 创建订单
 // const createOrder = async () => {
