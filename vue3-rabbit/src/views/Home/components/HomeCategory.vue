@@ -1,6 +1,6 @@
 <script setup>
 // 封装调用
-import { useCategoryStore } from '@/stores/category'
+import { useCategoryStore } from '@/stores/categoryStore'
 
 const categoryStore = useCategoryStore()
 

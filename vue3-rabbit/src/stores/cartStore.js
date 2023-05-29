@@ -2,7 +2,7 @@
 
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { useUserStore } from './user'
+import { useUserStore } from './userStore'
 import { insertCartAPI, findNewCartListAPI, delCartAPI } from '@/apis/cart'
 
 export const useCartStore = defineStore('cart', () => {
@@ -39,7 +39,7 @@ export const useCartStore = defineStore('cart', () => {
         }
     }
 
-    // 删除购物车
+    // 删除购物车 -> 登录状态下
     const delCart = async (skuId) => {
         if (isLogin.value) {
             // 调用接口实现接口购物车中的删除功能

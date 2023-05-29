@@ -4,7 +4,7 @@
 import { useScroll } from '@vueuse/core'
 
 // 封装请求
-import { useCategoryStore } from '@/stores/category';
+import { useCategoryStore } from '@/stores/categoryStore';
 
 // 纵向滚动的距离
 const { y } = useScroll(window)
