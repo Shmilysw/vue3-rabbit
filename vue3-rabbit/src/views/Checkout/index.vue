@@ -59,8 +59,6 @@ const createOrder = async () => {
 }
 
 
-
-
 // import { getCheckInfoAPI, createOrderAPI } from '@/apis/checkout'
 // import { useRouter } from 'vue-router'
 // import { onMounted, ref } from 'vue'
