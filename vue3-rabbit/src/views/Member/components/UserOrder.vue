@@ -30,6 +30,14 @@ const getOrderList = async () => {
 onMounted(() => getOrderList())
 
 
+// tab切换
+const tabChange = (type) => {
+    // console.log(type);
+    params.value.orderState = type
+    getOrderList();
+}
+
+
 
 
 // const total = ref(0)
