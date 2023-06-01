@@ -13,6 +13,8 @@ const tabTypes = [
     { name: "complete", label: "已完成" },
     { name: "cancel", label: "已取消" }
 ]
+// 总数量
+const total = ref(0)
 // 获取订单列表
 const orderList = ref([])
 const params = ref({
@@ -21,22 +23,41 @@ const params = ref({
     pageSize: 2
 })
 
-
 const getOrderList = async () => {
     const res = await getUserOrder(params.value)
-    orderList.value = res.result
+    orderList.value = res.result.items
+    total.value = res.result.counts
 }
 
 onMounted(() => getOrderList())
 
-
 // tab切换
 const tabChange = (type) => {
-    // console.log(type);
+    console.log(type);
     params.value.orderState = type
     getOrderList();
 }
 
+
+// 页数切换
+const pageChange = (page) => {
+    console.log(page);
+    params.value.page = page
+    getOrderList()
+}
+
+
+// const fomartPayState = (payState) => {
+//     const stateMap = {
+//         1: '待付款',
+//         2: '待发货',
+//         3: '待收货',
+//         4: '待评价',
+//         5: '已完成',
+//         6: '已取消'
+//     }
+//     return stateMap[payState]
+// }
 
 
 
@@ -125,7 +146,7 @@ const tabChange = (type) => {
                                 </ul>
                             </div>
                             <div class="column state">
-                                <p>{{ fomartPayState(order.orderState) }}</p>
+                                <p></p>
                                 <p v-if="order.orderState === 3">
                                     <a href="javascript:;" class="green">查看物流</a>
                                 </p>
