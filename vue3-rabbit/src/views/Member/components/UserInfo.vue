@@ -1,7 +1,6 @@
 <script setup>
-
-import { getLikeListAPI } from '@/apis/user'
 import { useUserStore } from '@/stores/userStore'
+import { getLikeListAPI } from '@/apis/user'
 import { onMounted, ref } from 'vue'
 import GoodsItem from '@/views/Home/components/GoodsItem.vue'
 const userStore = useUserStore()
@@ -10,11 +9,29 @@ const userStore = useUserStore()
 const likeList = ref([])
 
 const getLikeList = async () => {
+    // limit: 4 表示拉去的数据数量
     const res = await getLikeListAPI({ limit: 4 })
     likeList.value = res.result
 }
 
 onMounted(() => getLikeList())
+
+
+// import { getLikeListAPI } from '@/apis/user'
+// import { useUserStore } from '@/stores/userStore'
+// import { onMounted, ref } from 'vue'
+// import GoodsItem from '@/views/Home/components/GoodsItem.vue'
+// const userStore = useUserStore()
+
+
+// const likeList = ref([])
+
+// const getLikeList = async () => {
+//     const res = await getLikeListAPI({ limit: 4 })
+//     likeList.value = res.result
+// }
+
+// onMounted(() => getLikeList())
 
 
 </script>
