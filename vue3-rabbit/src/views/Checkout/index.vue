@@ -5,6 +5,7 @@ import { onMounted, ref } from 'vue'
 import { useCartStore } from '@/stores/cartStore'
 const cartStore = useCartStore()
 const router = useRouter()
+// 获取结算信息
 const checkInfo = ref({}) // 订单对象
 const curAddress = ref({}) // 默认地址
 const getCheckInfo = async () => {
@@ -18,7 +19,7 @@ const getCheckInfo = async () => {
 
 onMounted(() => getCheckInfo())
 
-// 控制弹窗打开
+// 控制弹框打开
 const showDialog = ref(false)
 
 // 切换地址
@@ -57,68 +58,6 @@ const createOrder = async () => {
     // 更新购物车
     cartStore.updateNewList()
 }
-
-
-// import { getCheckInfoAPI, createOrderAPI } from '@/apis/checkout'
-// import { useRouter } from 'vue-router'
-// import { onMounted, ref } from 'vue'
-// import { useCartStore } from '@/stores/cartStore'
-// const cartStore = useCartStore()
-// const router = useRouter()
-// // 获取结算信息
-// const checkInfo = ref({}) // 订单对象
-// const curAddress = ref({}) // 默认地址
-// const getCheckInfo = async () => {
-//     const res = await getCheckInfoAPI()
-//     checkInfo.value = res.result
-//     // 适配默认地址
-//     // 从地址列表中筛选出来 isDefault === 0 那一项
-//     const item = checkInfo.value.userAddresses.find(item => item.isDefault === 0)
-//     curAddress.value = item
-// }
-
-// onMounted(() => getCheckInfo())
-
-// 控制弹框打开
-// const showDialog = ref(false)
-
-
-// // 切换地址
-// const activeAddress = ref({})
-// const switchAddress = (item) => {
-//     activeAddress.value = item
-// }
-// const confirm = () => {
-//     curAddress.value = activeAddress.value
-//     showDialog.value = false
-//     activeAddress.value = {}
-// }
-
-// 创建订单
-// const createOrder = async () => {
-//     const res = await createOrderAPI({
-//         deliveryTimeType: 1,
-//         payType: 1,
-//         payChannel: 1,
-//         buyerMessage: '',
-//         goods: checkInfo.value.goods.map(item => {
-//             return {
-//                 skuId: item.skuId,
-//                 count: item.count
-//             }
-//         }),
-//         addressId: curAddress.value.id
-//     })
-//     const orderId = res.result.id
-//     router.push({
-//         path: '/pay',
-//         query: {
-//             id: orderId
-//         }
-//     })
-//     // 更新购物车
-//     cartStore.updateNewList()
-// }
 
 </script>
 
@@ -233,7 +172,7 @@ const createOrder = async () => {
         </div>
         <template #footer>
             <span class="dialog-footer">
-                <el-button @click="showDialog = false">取消</el-button>
+                <el-button>取消</el-button>
                 <el-button type="primary" @click="confirm">确定</el-button>
             </span>
         </template>
