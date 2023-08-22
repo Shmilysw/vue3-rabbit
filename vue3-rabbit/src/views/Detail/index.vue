@@ -106,10 +106,10 @@ const addCart = () => {
                 <el-breadcrumb separator=">">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
                     <!-- 
-                错误原因：goods一开始{}  {}.categories -> undefined  -> undefined[1]
-                1. 可选链的语法?.  -> goods.categories?.[1].id
-                2. v-if手动控制渲染时机 保证只有数据存在才渲染
-            -->
+                    错误原因：goods一开始{}  {}.categories -> undefined  -> undefined[1]
+                    1. 可选链的语法?.  -> goods.categories?.[1].id
+                    2. v-if手动控制渲染时机 保证只有数据存在才渲染
+                    -->
                     <el-breadcrumb-item :to="{ path: `/category/${goods.categories[1].id}` }">{{
                         goods.categories[1].name
                     }}
@@ -184,7 +184,6 @@ const addCart = () => {
                                     加入购物车
                                 </el-button>
                             </div>
-
                         </div>
                     </div>
                     <div class="goods-footer">

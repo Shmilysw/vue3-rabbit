@@ -6,6 +6,7 @@ import { useUserStore } from "@/stores/userStore";
 import router from "@/router";
 
 const httpInstance = axios.create({
+    // 后端由黑马提供
     baseURL: 'http://pcapi-xiaotuxian-front-devtest.itheima.net',
     timeout: 5000
 })
